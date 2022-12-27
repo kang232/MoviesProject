@@ -1,0 +1,23 @@
+footer {
+
+    background-color: white;
+    text-align: center;
+    z-index: 2;
+}
+.footer-top {
+    padding: 10px;
+    
+}
+.footer-center {
+    height: 300px;
+    margin: 10px auto;
+    max-width: 1200px;
+}
+.footer-bot {
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+}
+.container-info {
+    /* padding: 10px; */
+}

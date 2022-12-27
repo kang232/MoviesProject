@@ -1,0 +1,58 @@
+.home-wrap {
+    padding: 10px 20px;
+    min-height: 80vh;
+}
+.home-wrap >h2 {
+    padding: 10px 0;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.movie-card {
+    width: 300px;
+    height: 480px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 5px;
+}
+.movie-card:hover {
+   opacity: 0.8;
+}
+.movie-card > h3 {
+    /* padding: 10px; */
+    /* text-align: center; */
+    height: 57px;
+    overflow: hidden;
+}
+
+.movie-image {
+    width: 300px;
+    height: 400px;
+}
+.movie-img {
+    height: 100%;
+    width: 100%;
+}
+.pagination {
+    width: fit-content;
+    margin: auto;
+    padding-top: 10px;
+}
+.search-container {
+    width: 400px;
+    margin: 20px auto 0;
+}
+.star {
+    color: rgb(240, 240, 75);
+    margin-right: 10px;
+}
+.movie-content {
+    display: flex;
+    margin: 10px 0;
+}
+.movie-content >strong {
+    margin: 0 5px;
+}

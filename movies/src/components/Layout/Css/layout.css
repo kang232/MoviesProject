@@ -1,0 +1,149 @@
+a,
+li,
+ul,
+p,
+h1,
+h2,
+h3 {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: #363636;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+.header-container {
+  box-shadow:0 0 6px 0 rgba(0, 0, 0, 0.19);
+  padding: 0 20px 0 0;
+  background-color: white;
+  /* height: 45px; */
+}
+
+.header {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+a {
+  font-weight: 500;
+  color: rgb(121, 120, 120);
+  /* color: #926aa6; */
+}
+
+a:hover {
+  color: #000000;
+}
+.hedder-logo{
+  width: 350px;
+}
+h1 {
+  color: #926aa6;
+}
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  margin: 0 auto;
+}
+.header-right {
+  height: 32px;
+  padding: 2px 0;
+ }
+.header-search {
+  margin: auto 0;
+  /* width: 30%; */
+
+}
+
+.header-mobile {
+  display: none;
+}
+.header-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  display: none;
+  animation: fadeIn linear 0.2s;
+}
+.header-menu-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 100%;
+  background-color: white;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform linear 0.2s, opacity linear 0.2s;
+  padding: 10px 20px;
+
+}
+.button-close:hover {
+  /* border-radius: 50%; */
+  background-color: #dadada;
+  border-radius: 5px;
+}
+.header-input:checked  ~ .header-overlay {
+  display: block;
+}
+.header-input:checked ~ .header-menu-mobile {
+  transform: translateX(0%);
+  opacity: 1;
+
+}
+.header-input {
+  display: none;
+}
+.header-menu-mobile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+.header-menu-mobile-item > a {
+  display: block;
+  padding: 10px;
+
+}
+.header-menu-mobile-item > a:hover {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width:800px) {
+  .header-top,.header-menu, .header-right {
+    display: none;
+  }
+  .header-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .header-container {
+    padding: 0px 20px;
+  }
+}
+ul {
+  margin: 10px;
+}
