@@ -1,12 +1,16 @@
-import React, { useEffect, useLayoutEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import Helmet from "../Layout/Helmet";
 import { Link, useParams } from 'react-router-dom';
 import { ServiceAPI } from '../Services/Services';
-import './css/MoviePage.css'
+import './css/MovieDetail.css'
 import {
     StarFilled
 } from '@ant-design/icons';
 import { Result, Spin, Button } from 'antd';
+import PullToRefresh from 'pulltorefreshjs';
+
+
+
 export default function MoviePages() {
     const { id } = useParams();
     const url_img = 'https://image.tmdb.org/t/p/w500'
@@ -16,9 +20,18 @@ export default function MoviePages() {
 
     useEffect(() => {
         window.scrollTo(0,0)
+
+        handleSearch(id)
+        PullToRefresh.init({
+            mainElement: 'body',
+            onRefresh: function () {
+                setSpin(true)
+                handleSearch(id)
+    }
+        });
     }, [])
 
-    useEffect(() => {
+    const handleSearch = (id) => {
         ServiceAPI.getMovieById(id).then(result => {
             setMovie(result)
             setSpin(false)
@@ -26,7 +39,7 @@ export default function MoviePages() {
             setSpin(false)
             setErr(e)
         });
-    }, [id]);
+    }
 
     return (
         <>

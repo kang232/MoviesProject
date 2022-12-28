@@ -1,14 +1,12 @@
-import React, { useEffect, useCallback, useState, useNavigatt, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { ServiceAPI } from "../Services/Services";
-import { notification, Result, Spin, Pagination, Input } from "antd";
-import './css/HomePage.css'
+import { notification, Spin, Pagination } from "antd";
 import { Link } from 'react-router-dom';
 import Helmet from "../Layout/Helmet";
 import PullToRefresh from 'pulltorefreshjs';
 import {
     StarFilled
 } from '@ant-design/icons';
-const { Search } = Input
 
 function TopRate() {
     const [movies, setMovies] = useState([])
@@ -19,7 +17,7 @@ function TopRate() {
     useEffect(() => {
         handleSearch(page)
         PullToRefresh.init({
-            mainElement: '#wrap',
+            mainElement: 'body',
             onRefresh: function () {
                 handleSearch(1)
                 setPage(1)

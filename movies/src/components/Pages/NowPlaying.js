@@ -1,7 +1,6 @@
-import React, { useEffect, useCallback, useState, useNavigatt, useRef } from "react";
+import React, { useEffect, useState} from "react";
 import { ServiceAPI } from "../Services/Services";
-import { notification, Result, Spin, Pagination, Input } from "antd";
-import './css/HomePage.css'
+import { notification, Spin, Pagination } from "antd";
 import { Link } from 'react-router-dom';
 import Helmet from "../Layout/Helmet";
 import PullToRefresh from 'pulltorefreshjs';
@@ -18,13 +17,14 @@ function NowPlaying() {
     useEffect(() => {
         handleSearch(page)
         PullToRefresh.init({
-            mainElement: '#wrap',
+            mainElement: 'body',
             onRefresh: function () {
+                setSpin(true)
                 handleSearch(1)
                 setPage(1)
             }
         });
-    }, [])
+    }, [page])
     const handlePagination = (e) => {
         setPage(e)
         setSpin(true)

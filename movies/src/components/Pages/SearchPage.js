@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { ServiceAPI } from "../Services/Services";
-import { Button, Result, Spin, Pagination, Input } from "antd";
+import { Spin, Pagination, notification } from "antd";
 import './css/SearchPage.css'
 import {
     StarFilled
@@ -17,18 +17,18 @@ function SearchPage() {
 
     useEffect(() => {
         ServiceAPI.searchMovie(query, page).then(result => {
-            setSpin(false)
             setMovies(result.results)
             setTotal(result.total_results)
+            setSpin(false)
         }).catch(() => {
             // TO DO
         });
 
-    }, [query]);
+    }, []);
 
     const handlePagination = (e) => {
-        setPage(e)
         setSpin(true)
+        setPage(e)
         handleSearchMovie(query, page)
         window.scroll({ top: 0, behavior: 'smooth' })
     }
@@ -39,7 +39,7 @@ function SearchPage() {
             setSpin(false)
         }).catch((e) => {
             setSpin(false)
-
+            notification.error({message: e.errors[0]})
         });
     }
     return (
