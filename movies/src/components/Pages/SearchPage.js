@@ -6,47 +6,43 @@ import './css/SearchPage.css'
 import {
     StarFilled
 } from '@ant-design/icons';
+import { SearchContext } from '../ContextProvider/SearchContextProvider';
 
 function SearchPage() {
-    const { query } = useParams();
     const [movies, setMovies] = useState([])
     const [spin, setSpin] = useState(true)
     const [total, setTotal] = useState(0)
     const [page, setPage] = useState(1)
     const url_img = 'https://image.tmdb.org/t/p/w500'
+    const { data } = React.useContext(SearchContext);
 
     useEffect(() => {
-        ServiceAPI.searchMovie(query, page).then(result => {
-            setMovies(result.results)
-            setTotal(result.total_results)
-            setSpin(false)
-        }).catch(() => {
-            // TO DO
-        });
-
-    }, []);
+        handleSearchMovie(data)
+    }, [data]);
 
     const handlePagination = (e) => {
         setSpin(true)
         setPage(e)
-        handleSearchMovie(query, page)
+        handleSearchMovie(data, page)
         window.scroll({ top: 0, behavior: 'smooth' })
     }
 
     const handleSearchMovie = (value) => {
+        setSpin(true)
         ServiceAPI.searchMovie(value, page).then(result => {
             setMovies(result.results)
+            setTotal(result.total_results)
             setSpin(false)
         }).catch((e) => {
             setSpin(false)
-            notification.error({message: e.errors[0]})
+            notification.error({ message: e.errors[0] })
         });
     }
     return (
         <>
             <Spin spinning={spin}>
                 <div className="home-wrap">
-                    <div className="search-title"> <strong>{total}</strong> results for <strong>'{query}'</strong> </div>
+                    <div className="search-title"> <strong>{total}</strong> results for <strong>'{data}'</strong> </div>
                     <hr />
                     <div className="movie-container">
 

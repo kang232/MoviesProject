@@ -3,6 +3,7 @@ import { CloseOutlined, BarsOutlined } from '@ant-design/icons';
 import { notification, Input, Form } from 'antd';
 import './Css/layout.css'
 import { Link, useNavigate } from 'react-router-dom';
+import { SearchContext } from '../ContextProvider/SearchContextProvider';
 
 const { Search } = Input
 
@@ -11,7 +12,7 @@ export default function Header(props) {
   const navigate = useNavigate()
   const search = useRef()
   const menuRef = useRef()
-
+  const { handleChangeSearchData } = React.useContext(SearchContext);
   useEffect(() => {
     handleResetField()
   })
@@ -23,22 +24,8 @@ export default function Header(props) {
     search.current.focus()
   }
   const handleSearch = (value) => {
-    const menuContainer = menuRef.current
-    const items = menuContainer.getElementsByClassName('header-menu-item')
-    const reg = new RegExp(/[A-Za-z 0-9]/g)
-    if (value && reg.exec(value)
-      // && value !== '%' && value !== '#' && value !== ' '
-    ) {
-      for (var i = 0; i < items.length; i++) {
-        const current = document.getElementsByClassName("active");
-        if (current[0]) {
-          current[0].className = current[0].className.replace(" active", "");
-        }
-      }
-      navigate(`/movie/search/${value}`)
-    } else {
-      notification.warning({ message: 'Invalid search, try again' })
-    }
+    handleChangeSearchData(value)
+    navigate(`/movie/search`)
   }
 
   useEffect(() => {
