@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ServiceAPI } from "../Services/Services";
 import { Spin, Pagination, notification } from "antd";
 import './css/SearchPage.css'
