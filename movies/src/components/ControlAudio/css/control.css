@@ -1,0 +1,49 @@
+button {
+    background: none;
+    border: none;
+}
+
+.container-volume {
+    width: 150px;
+    height: 0;
+    margin-top: -16px;
+}
+
+.bot {
+    position: absolute;
+    height: 50px;
+    background-color: rgba(112, 112, 112, .5);
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    padding: 0 20px;
+}
+
+.control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+}
+
+.control div {
+    margin: 10px;
+}
+
+.toggle-play {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+}
+.icon-volume {
+    width: 40px;
+}
+.slider-audio {
+    width: 100px;
+    height: 0px;
+    position: relative;
+    margin-top: -16px;
+}

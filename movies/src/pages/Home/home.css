@@ -1,0 +1,58 @@
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: grey;
+}
+
+.home-page video {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    opacity: 0;
+}
+.visible {
+    opacity: 1 !important;
+}
+.weather {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.mode-switch {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 1;
+}
+
+.left,
+.right {
+    position: absolute;
+    width: 50px;
+    background-color: rgba(112, 112, 112, .5);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left {
+    left: 60px;
+}
+
+.right {
+    right: 10px;
+}
+.switch-item {
+    margin: 10px 0;
+}
+

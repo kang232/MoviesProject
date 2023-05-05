@@ -1,0 +1,32 @@
+.left {
+    max-height: 400px;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: visible !important;
+}
+.left::-webkit-scrollbar {
+    width: 10px;
+    color: aqua;
+    display: none;
+  }
+.left::-webkit-scrollbar-thumb {
+    background: #444343; 
+    border-radius: 3px;
+    display: none;
+}
+.wrap-button {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.volume-audio {
+    position: absolute;
+    right: -100%;
+    z-index: 3;
+}
+.switch-btn {
+    position: relative;
+}
